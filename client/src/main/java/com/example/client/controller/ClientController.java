@@ -21,8 +21,8 @@ public class ClientController {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<String> entity = new HttpEntity<String>(input.getContent(), headers);
-        String result = restTemplate.postForObject("http://localhost:8081/publish", entity, String.class);
+        HttpEntity<String> entity = new HttpEntity<>(input.getContent(), headers);
+        String result = restTemplate.postForObject("http://172.1.1.11:8081/publish", entity, String.class);
         model.addAttribute("result", result);
         return "result_form";
     }
